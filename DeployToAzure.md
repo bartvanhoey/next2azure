@@ -51,6 +51,28 @@ git push
 
 ## Step 6: Create an Web App on Azure
 
+Login into the Azure Portal. Click on Create a resource and search for Web App. 
+Set up a new Web App on Azure by following these steps:
+
 ![Basics](images/basics.png)
+
 ![Deployment](images/deployment.png)
+
+Review and create the web app.
+
+## Step 7: Copy the Publish Profile and the Default domain url
+
+Once the Web App is created, navigate to the Web App's Overview page. Click on "Get publish profile" to download the publish profile XML file. Copy the XML content from this file.
+
+Copy the Default domain url from the Overview page as well, you will need it later.
+
+## Step 8: Add Action Secrets in GitHub
+
+In your GitHub repository, navigate to the Settings > Secrets and variables > Actions section. Add the following secrets:
+
+- `AZURE_WEBAPP_PUBLISH_PROFILE`: Paste the content of the publish profile XML file you copied earlier.
+- `NEXT_PUBLIC_BASE_URL`: Paste the Default domain url you copied earlier.
+
+
+
 
