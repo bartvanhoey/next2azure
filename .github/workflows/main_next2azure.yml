@@ -8,6 +8,10 @@ on:
     branches:
       - main
   workflow_dispatch:
+env:
+  APPLICATION_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+  WEBAPP_NAME: "next2azure"
+  NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
 
 jobs:
   build:
@@ -49,7 +53,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'next2azure'
+          app-name: ${{ env.WEBAPP_NAME }}
           slot-name: 'Production'
-          package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_21831B21034D49A1AD53A1F08855D648 }}
+          package: ./build/standalone
+          publish-profile: ${{ env.APPLICATION_PUBLISH_PROFILE }}
