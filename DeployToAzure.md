@@ -52,4 +52,5 @@ git push
 ## Step 6: Create an Web App on Azure
 
 ![Basics](images/basics.png)
+![Deployment](images/deployment.png)
 
